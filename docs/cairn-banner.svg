@@ -1,0 +1,193 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#061B27"/>
+      <stop offset="100%" stop-color="#0C3347"/>
+    </linearGradient>
+    <linearGradient id="pipeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E8754A" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#00BFA5" stop-opacity="0.2"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="360" fill="url(#bg)"/>
+
+  <!-- Subtle grid lines -->
+  <line x1="0" y1="90" x2="1200" y2="90" stroke="#1A3D50" stroke-width="0.5"/>
+  <line x1="0" y1="180" x2="1200" y2="180" stroke="#1A3D50" stroke-width="0.5"/>
+  <line x1="0" y1="270" x2="1200" y2="270" stroke="#1A3D50" stroke-width="0.5"/>
+  <line x1="300" y1="0" x2="300" y2="360" stroke="#1A3D50" stroke-width="0.5"/>
+  <line x1="600" y1="0" x2="600" y2="360" stroke="#1A3D50" stroke-width="0.5"/>
+  <line x1="900" y1="0" x2="900" y2="360" stroke="#1A3D50" stroke-width="0.5"/>
+
+  <!-- Top accent bar -->
+  <rect x="0" y="0" width="1200" height="3" fill="#E8754A"/>
+
+  <!-- Left panel content -->
+  <!-- Brand mark -->
+  <rect x="48" y="40" width="5" height="60" rx="2" fill="#E8754A"/>
+  <text x="68" y="82" font-family="Georgia, 'Times New Roman', serif" font-size="54" font-weight="bold" fill="#FFFFFF" letter-spacing="-1">Cairn</text>
+
+  <!-- Tagline -->
+  <text x="48" y="118" font-family="'Courier New', monospace" font-size="13" fill="#00BFA5" letter-spacing="2">ALERTING PLATFORM · PARKINSON'S CARE</text>
+
+  <!-- Divider -->
+  <rect x="48" y="134" width="280" height="1" fill="#1E5060"/>
+
+  <!-- Description -->
+  <text x="48" y="160" font-family="Georgia, serif" font-size="14" fill="#94B8C4" font-style="italic">Reads tremor, stiffness &amp; fall signals from any</text>
+  <text x="48" y="180" font-family="Georgia, serif" font-size="14" fill="#94B8C4" font-style="italic">smartwatch. Alerts the right person in under 5s.</text>
+
+  <!-- 3 stat cards -->
+  <!-- Stat 1 -->
+  <rect x="48" y="210" width="105" height="66" rx="6" fill="#0A2D3F" stroke="#E8754A" stroke-width="1"/>
+  <text x="100" y="237" font-family="Georgia, serif" font-size="24" font-weight="bold" fill="#E8754A" text-anchor="middle">153k</text>
+  <text x="100" y="254" font-family="Arial, sans-serif" font-size="10" fill="#5C8E9E" text-anchor="middle">people with</text>
+  <text x="100" y="267" font-family="Arial, sans-serif" font-size="10" fill="#5C8E9E" text-anchor="middle">Parkinson's in UK</text>
+
+  <!-- Stat 2 -->
+  <rect x="165" y="210" width="105" height="66" rx="6" fill="#0A2D3F" stroke="#00BFA5" stroke-width="1"/>
+  <text x="217" y="237" font-family="Georgia, serif" font-size="24" font-weight="bold" fill="#00BFA5" text-anchor="middle">&lt; 5s</text>
+  <text x="217" y="254" font-family="Arial, sans-serif" font-size="10" fill="#5C8E9E" text-anchor="middle">wrist to</text>
+  <text x="217" y="267" font-family="Arial, sans-serif" font-size="10" fill="#5C8E9E" text-anchor="middle">triage alert</text>
+
+  <!-- Stat 3 -->
+  <rect x="282" y="210" width="105" height="66" rx="6" fill="#0A2D3F" stroke="#4A90A4" stroke-width="1"/>
+  <text x="334" y="237" font-family="Georgia, serif" font-size="24" font-weight="bold" fill="#4A90A4" text-anchor="middle">17k</text>
+  <text x="334" y="254" font-family="Arial, sans-serif" font-size="10" fill="#5C8E9E" text-anchor="middle">registered</text>
+  <text x="334" y="267" font-family="Arial, sans-serif" font-size="10" fill="#5C8E9E" text-anchor="middle">UK care homes</text>
+
+  <!-- GDPR badge -->
+  <rect x="48" y="300" width="120" height="28" rx="14" fill="#0A2D3F" stroke="#00BFA5" stroke-width="1"/>
+  <text x="108" y="318" font-family="Arial, sans-serif" font-size="11" fill="#00BFA5" text-anchor="middle">UK GDPR native</text>
+
+  <rect x="180" y="300" width="130" height="28" rx="14" fill="#0A2D3F" stroke="#4A4A8A" stroke-width="1"/>
+  <text x="245" y="318" font-family="Arial, sans-serif" font-size="11" fill="#8888CC" text-anchor="middle">Not a medical device</text>
+
+  <!-- Right panel: Pipeline -->
+  <!-- Pipeline label -->
+  <text x="450" y="42" font-family="'Courier New', monospace" font-size="11" fill="#5C8E9E" letter-spacing="2">DATA FLOW  ·  WRIST TO ALERT</text>
+
+  <!-- Pipeline track -->
+  <rect x="430" y="58" width="730" height="3" fill="url(#pipeGrad)" rx="1"/>
+
+  <!-- Stage 1: Wearable -->
+  <rect x="430" y="70" width="130" height="90" rx="8" fill="#0A2D3F" stroke="#E8754A" stroke-width="1.5"/>
+  <rect x="430" y="70" width="130" height="4" rx="2" fill="#E8754A"/>
+  <text x="495" y="104" font-family="'Courier New', monospace" font-size="11" fill="#E8754A" text-anchor="middle" font-weight="bold">WEARABLE</text>
+  <text x="495" y="122" font-family="Arial, sans-serif" font-size="10" fill="#7AAAB8" text-anchor="middle">Apple · Fitbit</text>
+  <text x="495" y="137" font-family="Arial, sans-serif" font-size="10" fill="#7AAAB8" text-anchor="middle">Garmin · Oura</text>
+  <text x="495" y="152" font-family="Arial, sans-serif" font-size="10" fill="#5C8E9E" text-anchor="middle">via Terra API</text>
+
+  <!-- Arrow 1 -->
+  <line x1="560" y1="115" x2="582" y2="115" stroke="#2D6070" stroke-width="1.5"/>
+  <polygon points="582,111 590,115 582,119" fill="#2D6070"/>
+
+  <!-- Stage 2: Kafka -->
+  <rect x="590" y="70" width="130" height="90" rx="8" fill="#0A2D3F" stroke="#F5A623" stroke-width="1.5"/>
+  <rect x="590" y="70" width="130" height="4" rx="2" fill="#F5A623"/>
+  <text x="655" y="104" font-family="'Courier New', monospace" font-size="11" fill="#F5A623" text-anchor="middle" font-weight="bold">STREAMING</text>
+  <text x="655" y="122" font-family="Arial, sans-serif" font-size="10" fill="#7AAAB8" text-anchor="middle">Kafka · Strimzi</text>
+  <text x="655" y="137" font-family="Arial, sans-serif" font-size="10" fill="#7AAAB8" text-anchor="middle">3-broker HA</text>
+  <text x="655" y="152" font-family="Arial, sans-serif" font-size="10" fill="#5C8E9E" text-anchor="middle">replay-able log</text>
+
+  <!-- Arrow 2 -->
+  <line x1="720" y1="115" x2="742" y2="115" stroke="#2D6070" stroke-width="1.5"/>
+  <polygon points="742,111 750,115 742,119" fill="#2D6070"/>
+
+  <!-- Stage 3: Rules -->
+  <rect x="750" y="70" width="130" height="90" rx="8" fill="#0A2D3F" stroke="#4A90A4" stroke-width="1.5"/>
+  <rect x="750" y="70" width="130" height="4" rx="2" fill="#4A90A4"/>
+  <text x="815" y="104" font-family="'Courier New', monospace" font-size="11" fill="#4A90A4" text-anchor="middle" font-weight="bold">RULE ENGINE</text>
+  <text x="815" y="122" font-family="Arial, sans-serif" font-size="10" fill="#7AAAB8" text-anchor="middle">per-person</text>
+  <text x="815" y="137" font-family="Arial, sans-serif" font-size="10" fill="#7AAAB8" text-anchor="middle">thresholds</text>
+  <text x="815" y="152" font-family="Arial, sans-serif" font-size="10" fill="#5C8E9E" text-anchor="middle">TimescaleDB</text>
+
+  <!-- Arrow 3 -->
+  <line x1="880" y1="115" x2="902" y2="115" stroke="#2D6070" stroke-width="1.5"/>
+  <polygon points="902,111 910,115 902,119" fill="#2D6070"/>
+
+  <!-- Stage 4: AI -->
+  <rect x="910" y="70" width="130" height="90" rx="8" fill="#0A2D3F" stroke="#9C5FE8" stroke-width="1.5"/>
+  <rect x="910" y="70" width="130" height="4" rx="2" fill="#9C5FE8"/>
+  <text x="975" y="104" font-family="'Courier New', monospace" font-size="11" fill="#9C5FE8" text-anchor="middle" font-weight="bold">AI TRIAGE</text>
+  <text x="975" y="122" font-family="Arial, sans-serif" font-size="10" fill="#7AAAB8" text-anchor="middle">LangGraph</text>
+  <text x="975" y="137" font-family="Arial, sans-serif" font-size="10" fill="#7AAAB8" text-anchor="middle">LiteLLM proxy</text>
+  <text x="975" y="152" font-family="Arial, sans-serif" font-size="10" fill="#5C8E9E" text-anchor="middle">urgency score</text>
+
+  <!-- Arrow 4 -->
+  <line x1="1040" y1="115" x2="1062" y2="115" stroke="#2D6070" stroke-width="1.5"/>
+  <polygon points="1062,111 1070,115 1062,119" fill="#2D6070"/>
+
+  <!-- Stage 5: Alert -->
+  <rect x="1070" y="70" width="105" height="90" rx="8" fill="#0D3520" stroke="#00BFA5" stroke-width="2"/>
+  <rect x="1070" y="70" width="105" height="4" rx="2" fill="#00BFA5"/>
+  <text x="1122" y="104" font-family="'Courier New', monospace" font-size="11" fill="#00BFA5" text-anchor="middle" font-weight="bold">ALERT</text>
+  <text x="1122" y="122" font-family="Arial, sans-serif" font-size="10" fill="#7AAAB8" text-anchor="middle">Slack</text>
+  <text x="1122" y="137" font-family="Arial, sans-serif" font-size="10" fill="#7AAAB8" text-anchor="middle">Email · SMS</text>
+  <text x="1122" y="152" font-family="Arial, sans-serif" font-size="10" fill="#5C8E9E" text-anchor="middle">MCP → Claude</text>
+
+  <!-- Infrastructure grid below pipeline -->
+  <text x="450" y="200" font-family="'Courier New', monospace" font-size="11" fill="#5C8E9E" letter-spacing="2">INFRASTRUCTURE STACK</text>
+
+  <!-- Infra boxes row 1 -->
+  <rect x="430" y="214" width="100" height="36" rx="5" fill="#0A2234" stroke="#1A3D50" stroke-width="1"/>
+  <text x="480" y="232" font-family="Arial, sans-serif" font-size="10" fill="#7AAAB8" text-anchor="middle" font-weight="bold">Kubernetes</text>
+  <text x="480" y="244" font-family="Arial, sans-serif" font-size="9" fill="#3A6070" text-anchor="middle">kubeadm · Cilium</text>
+
+  <rect x="540" y="214" width="100" height="36" rx="5" fill="#0A2234" stroke="#1A3D50" stroke-width="1"/>
+  <text x="590" y="232" font-family="Arial, sans-serif" font-size="10" fill="#7AAAB8" text-anchor="middle" font-weight="bold">GitOps</text>
+  <text x="590" y="244" font-family="Arial, sans-serif" font-size="9" fill="#3A6070" text-anchor="middle">Argo CD · Harbor</text>
+
+  <rect x="650" y="214" width="100" height="36" rx="5" fill="#0A2234" stroke="#1A3D50" stroke-width="1"/>
+  <text x="700" y="232" font-family="Arial, sans-serif" font-size="10" fill="#7AAAB8" text-anchor="middle" font-weight="bold">Observability</text>
+  <text x="700" y="244" font-family="Arial, sans-serif" font-size="9" fill="#3A6070" text-anchor="middle">Prom · Grafana</text>
+
+  <rect x="760" y="214" width="100" height="36" rx="5" fill="#0A2234" stroke="#1A3D50" stroke-width="1"/>
+  <text x="810" y="232" font-family="Arial, sans-serif" font-size="10" fill="#7AAAB8" text-anchor="middle" font-weight="bold">SRE</text>
+  <text x="810" y="244" font-family="Arial, sans-serif" font-size="9" fill="#3A6070" text-anchor="middle">Pyrra · Chaos Mesh</text>
+
+  <rect x="870" y="214" width="100" height="36" rx="5" fill="#0A2234" stroke="#1A3D50" stroke-width="1"/>
+  <text x="920" y="232" font-family="Arial, sans-serif" font-size="10" fill="#7AAAB8" text-anchor="middle" font-weight="bold">Security</text>
+  <text x="920" y="244" font-family="Arial, sans-serif" font-size="9" fill="#3A6070" text-anchor="middle">Vault · Kyverno</text>
+
+  <rect x="980" y="214" width="100" height="36" rx="5" fill="#0A2234" stroke="#1A3D50" stroke-width="1"/>
+  <text x="1030" y="232" font-family="Arial, sans-serif" font-size="10" fill="#7AAAB8" text-anchor="middle" font-weight="bold">Data</text>
+  <text x="1030" y="244" font-family="Arial, sans-serif" font-size="9" fill="#3A6070" text-anchor="middle">Timescale · Qdrant</text>
+
+  <rect x="1090" y="214" width="85" height="36" rx="5" fill="#0A2234" stroke="#1A3D50" stroke-width="1"/>
+  <text x="1132" y="232" font-family="Arial, sans-serif" font-size="10" fill="#7AAAB8" text-anchor="middle" font-weight="bold">Identity</text>
+  <text x="1132" y="244" font-family="Arial, sans-serif" font-size="9" fill="#3A6070" text-anchor="middle">Ory · GDPR</text>
+
+  <!-- SLO commitment line -->
+  <rect x="430" y="268" width="745" height="1" fill="#1A3D50"/>
+
+  <text x="450" y="292" font-family="'Courier New', monospace" font-size="11" fill="#5C8E9E" letter-spacing="1">SLO COMMITMENTS</text>
+
+  <rect x="450" y="305" width="3" height="30" rx="1" fill="#E8754A"/>
+  <text x="460" y="316" font-family="Arial, sans-serif" font-size="10" fill="#7AAAB8">Alert delivery</text>
+  <text x="460" y="330" font-family="'Courier New', monospace" font-size="10" fill="#E8754A">99.5% within 10s</text>
+
+  <rect x="590" y="305" width="3" height="30" rx="1" fill="#F5A623"/>
+  <text x="600" y="316" font-family="Arial, sans-serif" font-size="10" fill="#7AAAB8">Vitals ingest</text>
+  <text x="600" y="330" font-family="'Courier New', monospace" font-size="10" fill="#F5A623">99.9% within 5s</text>
+
+  <rect x="730" y="305" width="3" height="30" rx="1" fill="#4A90A4"/>
+  <text x="740" y="316" font-family="Arial, sans-serif" font-size="10" fill="#7AAAB8">API availability</text>
+  <text x="740" y="330" font-family="'Courier New', monospace" font-size="10" fill="#4A90A4">99.5% non-5xx</text>
+
+  <rect x="880" y="305" width="3" height="30" rx="1" fill="#9C5FE8"/>
+  <text x="890" y="316" font-family="Arial, sans-serif" font-size="10" fill="#7AAAB8">Dashboard load</text>
+  <text x="890" y="330" font-family="'Courier New', monospace" font-size="10" fill="#9C5FE8">99% under 2s</text>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="357" width="1200" height="3" fill="#1A3D50"/>
+
+  <!-- Proxmox label -->
+  <text x="1155" y="348" font-family="'Courier New', monospace" font-size="9" fill="#2A5060" text-anchor="end">Self-hosted on Proxmox VE 9.1 · github.com/adeolu-rabiu/cairn</text>
+</svg>
