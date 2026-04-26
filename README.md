@@ -61,56 +61,23 @@ flowchart LR
 
 ## 🏗️ Architecture
 
-<details>
-<summary><strong>Full system — edge to notification (click to expand)</strong></summary>
+Nine colour-coded layers — hardware at the bottom, external services at the top. Every box is a deployable component. Click any box on the [interactive version](docs/cairn-architecture.svg).
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│  EDGE                                                           │
-│  Apple Watch  ·  Fitbit  ·  Garmin  ·  Oura  ·  Whoop         │
-└──────────────────────────┬──────────────────────────────────────┘
-                           │ Terra API OAuth + webhooks
-                           ▼
-┌─────────────────────────────────────────────────────────────────┐
-│  CLOUDFLARE (free tier)                                         │
-│  DNS  ·  Tunnel (no public IP)  ·  Access (Zero Trust)  ·  Pages│
-└──────────────────────────┬──────────────────────────────────────┘
-                           ▼
-┌─────────────────────────────────────────────────────────────────┐
-│  PROXMOX VE 9.1  ·  HP EliteDesk 800 G2  ·  192.168.1.235      │
-│  ┌───────────────────────────────────────────────────────────┐  │
-│  │  KUBERNETES 1.30  (kubeadm · Cilium eBPF)                 │  │
-│  │                                                           │  │
-│  │  Network      NGINX Ingress · cert-manager · Cilium       │  │
-│  │  Identity     Ory Hydra · Kratos · Oathkeeper             │  │
-│  │  Consent      consent-service (GDPR ledger + audit log)   │  │
-│  │                                                           │  │
-│  │  Application  device-connector · vitals-ingestion         │  │
-│  │               rule-engine · ai-enrichment-agent           │  │
-│  │               notifier · user-service · mcp-server        │  │
-│  │                                                           │  │
-│  │  Data plane   Kafka (Strimzi) · TimescaleDB · PostgreSQL  │  │
-│  │               Qdrant · Redis · MinIO · Harbor             │  │
-│  │                                                           │  │
-│  │  AI layer     LiteLLM proxy · LangGraph agent             │  │
-│  │               sentence-transformers · vLLM (opt. GPU)     │  │
-│  │                                                           │  │
-│  │  Security     Vault + ESO · Kyverno · Falco · Trivy       │  │
-│  │                                                           │  │
-│  │  Observability Prometheus · Grafana · Loki · Tempo        │  │
-│  │               Alertmanager · Pyrra (SLOs) · Chaos Mesh    │  │
-│  │                                                           │  │
-│  │  CI/CD        GitHub Actions → Trivy → Cosign → Harbor    │  │
-│  │               Argo CD (app-of-apps) · Argo Rollouts       │  │
-│  │                                                           │  │
-│  │  DR           Velero → Backblaze B2 (off-site nightly)    │  │
-│  └───────────────────────────────────────────────────────────┘  │
-└─────────────────────────────────────────────────────────────────┘
-                           ▼
-           Slack  ·  Email  ·  SMS  ·  Claude Desktop (MCP)
-```
+<div align="center">
+<img src="docs/cairn-architecture.svg" alt="Cairn architecture on Proxmox VE — nine-layer diagram from hardware through Kubernetes, platform services, data plane, application, AI, and external services" width="100%"/>
+</div>
 
-</details>
+| Colour | Stack | Key components |
+|---|---|---|
+| 🟥 Pink | External services | Terra API · Cloudflare · Slack · Backblaze B2 |
+| 🟧 Coral | AI layer | LiteLLM · LangGraph · MCP server |
+| 🟩 Green | Application | Connector · Rule engine · Notifier · Dashboard |
+| 🟨 Amber | Data plane | Kafka · PostgreSQL+TimescaleDB · Qdrant · Redis · MinIO · Harbor |
+| 🟪 Purple | Platform | Argo CD · cert-manager · Vault+ESO · Kyverno |
+| 🩵 Teal | Monitoring | Prometheus · Grafana · Loki · Tempo |
+| 🔵 Blue | Kubernetes | cp-1 · worker-1 · worker-2 |
+| ⬜ Gray | Proxmox VE | Hypervisor (KVM/QEMU) · vmdata 1TB |
+| ⬜ Gray | Hardware | HP EliteDesk 800 G2 · i5-6500 · 23.9 GB |
 
 ---
 
