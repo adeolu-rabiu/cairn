@@ -1,0 +1,92 @@
+terraform {
+  required_providers {
+    proxmox = {
+      source  = "bpg/proxmox"
+      version = "~> 0.76"
+    }
+  }
+}
+
+provider "proxmox" {
+  endpoint = "https://192.168.1.235:8006"
+  username = "root@pam"
+  password = var.proxmox_password
+  insecure = true
+}
+
+variable "proxmox_password" {}
+variable "worker_count"     { default = 2 }
+variable "ssh_public_key"   {}
+
+resource "proxmox_virtual_environment_vm" "cp1" {
+  name      = "cp-1"
+  node_name = "rabtech"
+  vm_id     = 101
+
+  clone {
+    vm_id = 9000
+    full  = true
+  }
+
+  cpu    { cores = 2 }
+  memory { dedicated = 4096 }
+
+  disk {
+    datastore_id = "vmdata"
+    size         = 40
+    interface    = "scsi0"
+  }
+
+  initialization {
+    ip_config {
+      ipv4 {
+        address = "dhcp"
+      }
+    }
+    dns { servers = ["8.8.8.8"] }
+    user_account {
+      username = "ubuntu"
+      keys     = [var.ssh_public_key]
+    }
+  }
+
+  network_device { bridge = "vmbr0" }
+  agent          { enabled = true }
+}
+
+resource "proxmox_virtual_environment_vm" "workers" {
+  count     = var.worker_count
+  name      = "worker-${count.index + 1}"
+  node_name = "rabtech"
+  vm_id     = 102 + count.index
+
+  clone {
+    vm_id = 9000
+    full  = true
+  }
+
+  cpu    { cores = 2 }
+  memory { dedicated = 6144 }
+
+  disk {
+    datastore_id = "vmdata"
+    size         = 80
+    interface    = "scsi0"
+  }
+
+  initialization {
+    ip_config {
+      ipv4 {
+        address = "dhcp"
+      }
+    }
+    dns { servers = ["8.8.8.8"] }
+    user_account {
+      username = "ubuntu"
+      keys     = [var.ssh_public_key]
+    }
+  }
+
+  network_device { bridge = "vmbr0" }
+  agent          { enabled = true }
+}
