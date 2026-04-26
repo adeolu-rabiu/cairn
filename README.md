@@ -41,18 +41,19 @@ Cairn reads **tremor, stiffness, HRV, sleep disruption, and movement** from the 
 
 ```mermaid
 flowchart LR
-    A["⌚ Any wearable\nApple · Fitbit · Garmin\nOura · Whoop"] -->|"Terra API\nOAuth"| B["device-connector\nFastAPI"]
-    B -->|vitals.raw| C[("Kafka\n3-broker HA")]
-    C --> D["vitals-ingestion\n+ TimescaleDB"]
-    D -->|vitals.normalised| E["rule-engine\nthreshold checks"]
-    E -->|alerts.raw| F["🧠 AI enrichment\nLangGraph + LiteLLM"]
-    F -->|"urgency score\n+ triage hint"| G["notifier"]
-    G --> H["🔔 Slack · Email\nSMS · MCP → Claude"]
-
-    style A fill:#0A2D3F,stroke:#E8754A,color:#E8754A
-    style C fill:#0A2D3F,stroke:#F5A623,color:#F5A623
-    style F fill:#0A2D3F,stroke:#9C5FE8,color:#9C5FE8
-    style H fill:#0D3520,stroke:#00BFA5,color:#00BFA5
+    A["⌚ Any wearable
+(Apple · Fitbit · Garmin · Oura · Whoop)"] -->|Terra API OAuth| B[device-connector]
+    B -->|vitals.raw| C[(Kafka
+3-broker HA)]
+    C --> D[vitals-ingestion
++ TimescaleDB]
+    D -->|vitals.normalised| E[rule-engine
+threshold checks]
+    E -->|alerts.raw| F["🧠 AI enrichment
+LangGraph + LiteLLM"]
+    F -->|urgency score + triage hint| G[notifier]
+    G --> H["🔔 Slack · Email · SMS
+MCP to Claude"]
 ```
 
 > **Not a medical device. Not a clinical diagnostic. A force-multiplier for the people already doing the care.**
@@ -258,20 +259,10 @@ Pursuing: `CKA` · `AZ-104` · `AZ-500` · `AWS Solutions Architect Pro`
 
 ---
 
-## 📄 Related work
-
-| Repository | Description |
-|---|---|
-| [jobpulse-sre-lab](https://github.com/adeolu-rabiu) | Kubernetes SRE homelab — Prometheus, SLOs, chaos engineering |
-| [sentinel-df](https://github.com/adeolu-rabiu) | Digital forensics platform |
-| [cloudbank-microservices](https://github.com/adeolu-rabiu) | Cloud-native banking microservices on Kubernetes |
-
----
-
 <div align="center">
 
 *Cairn is informational software. It is not a medical device, not a clinical diagnostic tool, and makes no diagnostic or treatment claims. All alerts are informational only.*
 
-*© 2026 ALARI Ltd · Registered in England and Wales · [cairn.health](https://cairn.health)*
+*© 2026 ALARI · [cairn.health](https://cairn.health)*
 
 </div>
