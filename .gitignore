@@ -27,3 +27,8 @@ __pycache__/
 
 # Node
 node_modules/
+infra/terraform/terraform.tfvars
+infra/terraform/.terraform/
+infra/terraform/.terraform.lock.hcl
+infra/terraform/*.tfstate
+infra/terraform/*.tfstate.backup
