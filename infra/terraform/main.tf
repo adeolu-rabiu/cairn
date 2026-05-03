@@ -151,7 +151,7 @@ resource "proxmox_virtual_environment_vm" "workers" {
   }
 
   memory {
-    dedicated = 6144
+    dedicated = 8192
   }
 
   disk {
