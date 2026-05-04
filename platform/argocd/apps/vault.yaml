@@ -17,6 +17,7 @@ spec:
           dataStorage:
             enabled: true
             size: 2Gi
+            storageClass: local-path
           standalone:
             enabled: true
             config: |
