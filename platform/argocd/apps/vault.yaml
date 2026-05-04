@@ -35,3 +35,12 @@ spec:
           serviceNodePort: 31300
         injector:
           enabled: false
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: vault
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
