@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: vault
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.io
+spec:
+  project: default
+  source:
+    repoURL: https://helm.releases.hashicorp.com
+    chart: vault
+    targetRevision: 0.28.1
+    helm:
+      valuesObject:
+        server:
+          dataStorage:
+            enabled: true
+            size: 2Gi
+          standalone:
+            enabled: true
+            config: |
+              ui = true
+              listener "tcp" {
+                tls_disable = 1
+                address = "[::]:8200"
+                cluster_address = "[::]:8201"
+              }
+              storage "file" {
+                path = "/vault/data"
+              }
+        ui:
+          enabled: true
+          serviceType: NodePort
+          serviceNodePort: 31300
+        injector:
+          enabled: false
