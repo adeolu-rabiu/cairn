@@ -17,8 +17,8 @@ spec:
           service:
             type: NodePort
             nodePorts:
-              http: "30080"
-              https: "30443"
+              http: "31080"
+              https: "31443"
           metrics:
             enabled: true
   destination:
