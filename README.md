@@ -144,8 +144,8 @@ Cairn is a 24/7 alerting product for Parkinson's care. SRE maturity is not a pha
 
 | Phase | Tag | Goal | Status |
 |---|---|---|---|
-| **0** | `v0.1.0-foundations` | Proxmox VMs · Terraform · kubeadm · Cilium CNI | 🟡 In progress |
-| **1** | `v0.2.0-platform` | Argo CD · Vault · cert-manager · full MELT observability | ⬜ Planned |
+| 0 | `v0.1.0-foundations` | Proxmox VMs · Terraform · kubeadm · Cilium CNI | ✅ Completed |
+| 1 | `v0.2.0-platform` / `v0.2.1-observability-policy` | Argo CD · Vault · cert-manager · External Secrets · NGINX Ingress · Prometheus · Grafana · Loki · Tempo · Kyverno · Slack alerting | ✅ Completed |
 | **2** | `v0.3.0-data-plane` | Kafka · PostgreSQL · TimescaleDB · Qdrant · MinIO · Harbor | ⬜ Planned |
 | **3** | `v0.4.0-app-mvp` | device-connector · rule-engine · notifier · dashboard | ⬜ Planned |
 | **4** | `v0.5.0-ai-layer` | LiteLLM · LangGraph · embeddings · MCP server | ⬜ Planned |
