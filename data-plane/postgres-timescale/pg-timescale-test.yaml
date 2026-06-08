@@ -1,0 +1,25 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: pg-timescale-test
+  namespace: data
+spec:
+  instances: 1
+
+  imageName: ghcr.io/adeolu-rabiu/cairn-postgres-timescale:16-timescale
+
+  postgresql:
+    shared_preload_libraries:
+      - timescaledb
+
+  storage:
+    size: 10Gi
+    storageClass: local-path
+
+  bootstrap:
+    initdb:
+      database: cairn
+      owner: cairn
+      postInitSQL:
+        - CREATE EXTENSION IF NOT EXISTS pgcrypto;
+        - CREATE EXTENSION IF NOT EXISTS timescaledb;
